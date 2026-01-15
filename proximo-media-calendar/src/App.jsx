@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const initialCampaigns = [
-  // Tequila Programs
   { id: 1, brand: 'Jose Cuervo', campaign: 'Margarita Season', budget: 900000, startDate: '2026-04-27', endDate: '2026-09-07', category: 'tequila' },
   { id: 2, brand: 'Jose Cuervo', campaign: 'Nascar', budget: 250000, startDate: '2026-01-01', endDate: '2026-12-31', category: 'tequila', ongoing: 'Aligned to Races' },
   { id: 3, brand: 'Jose Cuervo', campaign: 'UFC', budget: 350000, startDate: '2026-01-01', endDate: '2026-12-31', category: 'tequila', ongoing: 'Aligned to PPV' },
@@ -17,11 +16,9 @@ const initialCampaigns = [
   { id: 13, brand: 'Gran Coramino', campaign: 'Kevin Hart Tour (TBD)', budget: 100000, startDate: '2026-06-01', endDate: '2026-08-31', category: 'tequila', tbd: true },
   { id: 14, brand: 'Gran Centenario', campaign: 'Summer of Futbol', budget: 300000, startDate: '2026-05-01', endDate: '2026-07-31', category: 'tequila' },
   { id: 15, brand: 'Gran Centenario', campaign: 'Holiday', budget: 200000, startDate: '2026-11-09', endDate: '2026-12-31', category: 'tequila' },
-  // Whiskey Programs
   { id: 16, brand: 'Pendleton', campaign: "Father's Day", budget: 75000, startDate: '2026-06-01', endDate: '2026-06-21', category: 'whiskey' },
   { id: 17, brand: 'Pendleton', campaign: 'Outdoor Grilling', budget: 325000, startDate: '2026-05-18', endDate: '2026-09-07', category: 'whiskey' },
   { id: 18, brand: 'Pendleton', campaign: 'Holiday', budget: 200000, startDate: '2026-11-09', endDate: '2026-12-31', category: 'whiskey' },
-  // Vodka & Rum Programs
   { id: 19, brand: 'Kraken', campaign: 'Summer', budget: 200000, startDate: '2026-05-18', endDate: '2026-09-07', category: 'vodka-rum' },
   { id: 20, brand: 'Kraken', campaign: 'Halloween', budget: 100000, startDate: '2026-09-08', endDate: '2026-10-31', category: 'vodka-rum' },
   { id: 21, brand: 'Three Olives', campaign: 'Summer', budget: 70000, startDate: '2026-05-18', endDate: '2026-09-07', category: 'vodka-rum' },
@@ -163,7 +160,6 @@ export default function App() {
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Noise texture overlay */}
       <div style={{
         position: 'fixed',
         top: 0,
@@ -175,7 +171,6 @@ export default function App() {
         zIndex: 1,
       }} />
 
-      {/* Header */}
       <header style={{
         background: 'linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%)',
         borderBottom: '1px solid rgba(197, 165, 114, 0.3)',
@@ -251,12 +246,6 @@ export default function App() {
                   fontFamily: "'Inter', sans-serif",
                   transition: 'all 0.3s ease',
                 }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(197, 165, 114, 0.1)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'transparent';
-                }}
               >
                 Exit Admin Mode
               </button>
@@ -277,14 +266,6 @@ export default function App() {
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
                 }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(197, 165, 114, 0.4)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
               >
                 Admin Login
               </button>
@@ -293,7 +274,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* Category Filter */}
       <div style={{
         padding: '20px 40px',
         background: 'rgba(0,0,0,0.3)',
@@ -342,7 +322,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* Main Content */}
       <main style={{
         padding: '40px',
         maxWidth: '1800px',
@@ -350,7 +329,6 @@ export default function App() {
         position: 'relative',
         zIndex: 10,
       }}>
-        {/* Month Headers */}
         <div style={{
           display: 'flex',
           marginBottom: '8px',
@@ -384,14 +362,12 @@ export default function App() {
           ))}
         </div>
 
-        {/* Calendar Sections */}
         {Object.entries(groupedCampaigns).map(([category, categoryCampaigns]) => {
           if (selectedCategory !== 'all' && selectedCategory !== category) return null;
           if (categoryCampaigns.length === 0) return null;
 
           return (
             <div key={category} style={{ marginBottom: '40px' }}>
-              {/* Section Header */}
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -425,7 +401,6 @@ export default function App() {
                 </span>
               </div>
 
-              {/* Campaign Rows */}
               <div style={{
                 background: 'rgba(255,255,255,0.02)',
                 borderRadius: '8px',
@@ -449,7 +424,6 @@ export default function App() {
                       onMouseEnter={() => setHoveredCampaign(campaign.id)}
                       onMouseLeave={() => setHoveredCampaign(null)}
                     >
-                      {/* Brand Name Only */}
                       <div style={{
                         width: '180px',
                         padding: '20px',
@@ -495,14 +469,12 @@ export default function App() {
                         )}
                       </div>
 
-                      {/* Timeline */}
                       <div style={{
                         flex: 1,
                         height: '70px',
                         position: 'relative',
                         background: 'rgba(0,0,0,0.2)',
                       }}>
-                        {/* Month grid lines */}
                         {months.map((month, i) => (
                           <div
                             key={i}
@@ -517,7 +489,6 @@ export default function App() {
                           />
                         ))}
 
-                        {/* Campaign bar with full details */}
                         <div
                           style={{
                             position: 'absolute',
@@ -550,7 +521,6 @@ export default function App() {
                             width: '100%',
                             textAlign: 'center',
                           }}>
-                            {/* Campaign Name */}
                             <span style={{
                               fontSize: isWideBar ? '12px' : '10px',
                               fontWeight: '600',
@@ -571,7 +541,6 @@ export default function App() {
                               }}>|</span>
                             )}
                             
-                            {/* Budget */}
                             <span style={{
                               fontSize: isWideBar ? '11px' : '9px',
                               fontWeight: '500',
@@ -590,7 +559,6 @@ export default function App() {
                               }}>|</span>
                             )}
                             
-                            {/* Flight Dates */}
                             <span style={{
                               fontSize: isWideBar ? '10px' : '8px',
                               fontWeight: '400',
@@ -604,7 +572,6 @@ export default function App() {
                           </div>
                         </div>
 
-                        {/* Tooltip for narrow bars */}
                         {hoveredCampaign === campaign.id && !isWideBar && (
                           <div style={{
                             position: 'absolute',
@@ -636,7 +603,6 @@ export default function App() {
         })}
       </main>
 
-      {/* Footer */}
       <footer style={{
         padding: '40px',
         borderTop: '1px solid rgba(255,255,255,0.05)',
@@ -655,7 +621,6 @@ export default function App() {
         </p>
       </footer>
 
-      {/* Login Modal */}
       {showLoginModal && (
         <div style={{
           position: 'fixed',
@@ -775,7 +740,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Edit Modal */}
       {editingCampaign && (
         <div style={{
           position: 'fixed',

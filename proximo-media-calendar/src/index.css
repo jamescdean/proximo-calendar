@@ -17,7 +17,6 @@ body {
   color: #ffffff;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -36,7 +35,6 @@ body {
   background: rgba(197, 165, 114, 0.5);
 }
 
-/* Date input styling for dark mode */
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
   opacity: 0.6;
@@ -47,7 +45,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   opacity: 1;
 }
 
-/* Selection color */
 ::selection {
   background: rgba(197, 165, 114, 0.3);
   color: #ffffff;
